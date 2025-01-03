@@ -22,7 +22,7 @@ public:
 	~BSTreeDict() {
 	    delete tree; // Liberar la memoria del árbol
 	}
-	int entries() override {
+	int entries() const override {
 	    return entryCount;
 	}
 	void insert(string key, V value) override {
@@ -42,7 +42,7 @@ public:
 		throw runtime_error("Elemento no encontrado");
 	}
 	}
-	V search(string key) override {
+	V search(string key) const override {
 	    V e;
 	    auto entry = tree->search(TableEntry(key,e));
             return entry.value;

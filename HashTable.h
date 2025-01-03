@@ -16,7 +16,7 @@ class HashTable: public Dict<V> {
 	int max;
 	ListLinked<TableEntry<V>>* table;
         
-	int h(std::string key ){
+	int h(std::string key ) const {
 	    int suma=0;
 	    for(int i=0;i<key.length();i++){
 	        suma += int(key.at(i));
@@ -46,7 +46,7 @@ class HashTable: public Dict<V> {
 	    return out;
 	
 	}
-        V operator[](std::string key){
+        V operator[](std::string key) const {
 	    int i = h(key);	
 	    
 	    for(int j=0;j<table[i].size();j++){
@@ -74,8 +74,8 @@ class HashTable: public Dict<V> {
 	    
 	
 	}
-	V search(std::string key) override{
-	
+	V search(std::string key) const override{
+
 	    return  (*this)[key];
 	
 	}
@@ -97,7 +97,7 @@ class HashTable: public Dict<V> {
 	
 	
 	}
-	int entries() override {
+	int entries() const override {
 	
 	    return n;
 	
