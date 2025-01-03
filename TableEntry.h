@@ -24,7 +24,16 @@ class TableEntry {
 	    out<<"key->"<<te.key<<" value->"<<te.value<<std::endl;
 	    return out;
 	}
+	friend bool operator<(const T TableEntry<V> &te1, const TableEntry<V> &te2){
+	    return te1.value < te2.value;
+	
+	}
+	friend bool operator>(const T TableEntry<V> &te1, const TableEntry<V> &te2){
+	    return !(te1<te2);
+	
+	}
 
 };
+    
 
 #endif
